@@ -6,7 +6,6 @@ interface Props {
 const { title } = Astro.props;
 
 import twemoji from "../twemoji/twemoji.esm.js";
-import { Image } from "astro:assets";
 
 const html: string = twemoji.parse(await Astro.slots.render("default"), {
   base: "/twemoji/",
