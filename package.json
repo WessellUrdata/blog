@@ -9,10 +9,12 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.7.1",
+    "daisyui": "^4.10.5",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   }
