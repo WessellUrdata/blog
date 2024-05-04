@@ -1,0 +1,165 @@
+---
+import dayjs from "dayjs";
+
+const APIDateTimeFormat = "YYYYMMDDHHmm";
+const displayDateTimeFormat = "YYYY-MM-DD HH:mm";
+
+const rhrread_API_URL =
+  "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en";
+
+const warningInfo_API_URL =
+  "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=en";
+
+interface rhrreadObject {
+  icon: number[];
+  iconUpdateTime: string;
+}
+
+const weatherIconAlt: Record<number, string> = {
+  50: "Sunny",
+  51: "Sunny Periods",
+  53: "Sunny Periods with A Few Showers",
+  54: "Sunny Intervals with Showers",
+  60: "Cloudy",
+  61: "Overcast",
+  62: "Light Rain",
+  63: "Rain",
+  64: "Heavy Rain",
+  65: "Thunderstorms",
+  70: "Fine ( use only in night-time on 1st of the Lunar Month )",
+  71: "Fine ( use only in night-time on 2nd to 6th of the Lunar Month )",
+  72: "Fine ( use only in night-time during 7th to 13th of Lunar Month )",
+  73: "Fine ( use only in night-time during 14th to 17th of Lunar Month )",
+  74: "Fine ( use only in night-time during 18th to 24th of Lunar Month )",
+  75: "Fine ( use only in night-time during 25th to 30th of Lunar Month )",
+  76: "Mainly Cloudy ( use only in night-time )",
+  77: "Mainly Fine ( use only in night-time )",
+  80: "Windy",
+  81: "Dry",
+  82: "Humid",
+  83: "Fog",
+  84: "Mist",
+  85: "Haze",
+  90: "Hot",
+  91: "Warm",
+  92: "Cool",
+  93: "Cold",
+};
+
+const getRhrreadData = async () => {
+  try {
+    const res = await fetch(rhrread_API_URL);
+    const data = await res.text();
+    const parsed: rhrreadObject = JSON.parse(data);
+    return parsed;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+interface warningInfoObject {
+  details: {
+    warningStatementCode: string;
+    subtype: string;
+  }[];
+}
+
+const warningStatementCode: Record<string, string> = {
+  WFIREY: "Yellow Fire Danger Warning",
+  WFIRER: "Red Fire Danger Warning",
+  WFROST: "Frost Warning",
+  WHOT: "Hot Weather Warning",
+  WCOLD: "Cold Weather Warning",
+  WMSGNL: "Strong Monsoon Signal",
+  WTCPRE8: "Pre-no.8 Special Announcement",
+  WRAINA: "Amber Rainstorm Warning Signal",
+  WRAINR: "Red Rainstorm Warning Signal",
+  WRAINB: "Black Rainstorm Warning Signal",
+  WFNTSA: "Special Announcement on Flooding in the northern New Territories",
+  WL: "Landslip Warning",
+  TC1: "Standby Signal No. 1",
+  TC3: "Strong Wind Signal No. 3",
+  TC8NE: "No. 8 Northeast Gale or Storm Signal",
+  TC8SE: "No. 8 Southeast Gale or Storm Signal",
+  TC8SW: "No. 8 Southwest Gale or Storm Signal",
+  TC8NW: "No. 8 Northwest Gale or Storm Signal",
+  TC9: "Increasing Gale or Storm Signal No. 9",
+  TC10: "Hurricane Signal No. 10",
+  WTMW: "Tsunami Warning",
+  WTS: "Thunderstorm Warning",
+};
+
+const warningStatementIcon: Record<string, string> = {
+  WFIREY: "firey",
+  WFIRER: "firer",
+  WFROST: "frost",
+  WHOT: "vhot",
+  WCOLD: "cold",
+  WMSGNL: "sms",
+  WTCPRE8: "Pre-no.8 Special Announcement",
+  WRAINA: "raina",
+  WRAINR: "rainr",
+  WRAINB: "rainb",
+  WFNTSA: "ntfl",
+  WL: "landslip",
+  TC1: "tc1",
+  TC3: "tc3",
+  TC8NE: "tc8ne",
+  TC8SE: "tc8b",
+  TC8SW: "tc8c",
+  TC8NW: "tc8d",
+  TC9: "tc9",
+  TC10: "tc10",
+  WTMW: "tsunami-warn",
+  WTS: "ts",
+};
+
+const getWarningInfo = async () => {
+  try {
+    const res = await fetch(warningInfo_API_URL);
+    const data = await res.text();
+    const parsed: warningInfoObject = JSON.parse(data);
+    return parsed;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+const rhrreadData = await getRhrreadData();
+const warningInfoData = await getWarningInfo();
+---
+
+{
+  rhrreadData && warningInfoData ? (
+    <>
+      <div class="flex flex-row rounded-md bg-slate-900 text-slate-100 text-wrap p-2 m-1 space-x-2">
+        {rhrreadData.icon.map((icon) => (
+          <img
+            src={`https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`}
+            alt={`${weatherIconAlt[icon]}`}
+            class="w-8 h-8"
+          />
+        ))}
+        {warningInfoData &&
+          Object.keys(warningInfoData).length > 0 &&
+          warningInfoData.details.map((detail) => (
+            <img
+              src={`https://www.hko.gov.hk/en/wxinfo/dailywx/images/${
+                warningStatementIcon[detail.subtype ? detail.subtype : detail.warningStatementCode]
+              }.gif`}
+              alt={
+                detail.subtype
+                  ? warningStatementCode[detail.subtype]
+                  : warningStatementCode[detail.warningStatementCode]
+              }
+              class="w-8 h-8"
+            />
+          ))}
+      </div>
+    </>
+  ) : (
+    "Error"
+  )
+}

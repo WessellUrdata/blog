@@ -1,8 +1,26 @@
 ---
+import WeatherCard from "../components/WeatherCard.astro";
+import WeatherInfo from "../components/WeatherInfo.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="">
-  <p>I'm feeling extremely ☺️🫂‼️</p>
-  <p>I'm feeling extremely &#x263a;&#xfe0f;🫂‼️</p>
+  <main>
+    <p>I'm feeling extremely ☺️🫂‼️</p>
+    <p>I'm feeling extremely &#x263a;&#xfe0f;🫂‼️</p>
+
+    <div id="weather" class="flex flex-col absolute right-0">
+      <div class="flex flex-col items-stretch">
+        <WeatherInfo />
+        <WeatherCard
+          displayLocation="Cheung Sha Wan"
+          API_URL="https://www.hko.gov.hk/PDADATA/locspc/data/gridData/0808_en.xml"
+        />
+        <WeatherCard
+          displayLocation="Hung Hom"
+          API_URL="https://www.hko.gov.hk/PDADATA/locspc/data/gridData/0906_en.xml"
+        />
+      </div>
+    </div>
+  </main>
 </Layout>
