@@ -45,15 +45,3 @@ const html: string = twemoji.parse(await Astro.slots.render("default"), {
     <Fragment set:html={html} />
   </body>
 </html>
-<style is:global>
-  img.emoji {
-    display: inline;
-    height: 1.2em;
-    width: 1.2em;
-    margin: 0 0.025em;
-    vertical-align: sub;
-  }
-  body {
-    background-color: white;
-  }
-</style>
