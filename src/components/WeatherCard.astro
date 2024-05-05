@@ -1,5 +1,4 @@
 ---
-import Papa from "papaparse";
 import dayjs from "dayjs";
 
 interface Props {
@@ -37,10 +36,9 @@ const getWeatherData = async (APIURL: string) => {
     const res = await fetch(APIURL);
     const data = await res.text();
     const parsed: weatherObject = JSON.parse(data);
-    parsed.RegionalWeather.DisplayTime = dayjs(
-      parsed.RegionalWeather.ObsTime,
-      APIDateTimeFormat
-    ).format(displayDateTimeFormat);
+    parsed.RegionalWeather.DisplayTime = dayjs(parsed.RegionalWeather.ObsTime, APIDateTimeFormat).format(
+      displayDateTimeFormat
+    );
     return parsed;
   } catch (error) {
     console.error(error);
@@ -65,8 +63,7 @@ const weatherData = await getWeatherData(API_URL);
             <span>{weatherData.RegionalWeather.RH.Value}%</span>
           </p>
           <p class="text-xs text-right">
-            Min: {weatherData.RegionalWeather.Temp.MinTemp}℃ Max:{" "}
-            {weatherData.RegionalWeather.Temp.MaxTemp}℃
+            Min: {weatherData.RegionalWeather.Temp.MinTemp}℃ Max: {weatherData.RegionalWeather.Temp.MaxTemp}℃
           </p>
         </div>
       </div>

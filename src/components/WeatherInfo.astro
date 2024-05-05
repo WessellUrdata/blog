@@ -4,11 +4,8 @@ import dayjs from "dayjs";
 const APIDateTimeFormat = "YYYYMMDDHHmm";
 const displayDateTimeFormat = "YYYY-MM-DD HH:mm";
 
-const rhrread_API_URL =
-  "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en";
-
-const warningInfo_API_URL =
-  "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=en";
+const rhrread_API_URL = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=rhrread&lang=en";
+const warningInfo_API_URL = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=warningInfo&lang=en";
 
 interface rhrreadObject {
   icon: number[];
@@ -135,12 +132,16 @@ const warningInfoData = await getWarningInfo();
   rhrreadData && warningInfoData ? (
     <>
       <div class="flex flex-row rounded-md bg-slate-900 text-slate-100 text-wrap p-2 m-1 space-x-2">
-        {rhrreadData.icon.map((icon) => (
-          <img
-            src={`https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`}
-            alt={`${weatherIconAlt[icon]}`}
-            class="w-8 h-8"
-          />
+        {rhrreadData.icon.map((icon, index) => (
+          <>
+            <img
+              src={`https://www.hko.gov.hk/images/HKOWxIconOutline/pic${icon}.png`}
+              alt={`${weatherIconAlt[icon]}`}
+              class="w-8 h-8"
+            />
+            {/* Add an arrow if it's not the last item */}
+            {index !== rhrreadData.icon.length - 1 && <span>&#8594;</span>}
+          </>
         ))}
         {warningInfoData &&
           Object.keys(warningInfoData).length > 0 &&
