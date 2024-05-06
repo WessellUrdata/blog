@@ -1,0 +1,21 @@
+---
+import twemoji from "../twemoji/twemoji.esm.js";
+
+import { twemojiVer, twemojiSettings } from "../constants.ts";
+---
+
+<header class="min-h-16 w-full bg-primary border-b-[.5px] border-gray-400 flex items-center">
+  <nav class="px-1 flex items-center">
+    <a
+      class="inline-flex items-center text-xl h-14 min-h-14 cursor-pointer select-none px-2 text-center gap-2 font-semibold"
+      tabindex="0"
+      href="/"
+    >
+      <img class="w-12" alt="Wessell's site logo" src="/logo.svg" />
+      <span>Wessell's <img class="emoji" draggable="false" alt="☺️" src=`/twemoji/${twemojiVer}/263a.svg` />site</span>
+    </a>
+    <ul>
+      <li><a class="btn btn-ghost" href="/about">About me</a></li>
+    </ul>
+  </nav>
+</header>

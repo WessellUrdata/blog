@@ -124,7 +124,7 @@ var twemoji = (function () {
         attrib,
         attrname;
       if (iconId && src) {
-        ret = "<Image ".concat(
+        ret = "<img ".concat(
           'class="',
           options.className,
           '" ',

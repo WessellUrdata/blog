@@ -7,12 +7,12 @@ export default {
   daisyui: {
     themes: [
       {
-        mytheme: {
-          primary: "#4d4d4d",
-          secondary: "#232629",
+        dark: {
+          primary: "#31363b",
+          secondary: "#4d4d4d",
           accent: "#3daee9",
           neutral: "#4d4d4d",
-          "base-100": "#31363b",
+          "base-100": "#232629",
           info: "#2980b9",
           success: "#27ae60",
           warning: "#ed1515",
@@ -20,6 +20,10 @@ export default {
         },
       },
     ],
+    darkTheme: "dark",
+    base: true,
+    styled: true,
+    utils: true,
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("@tailwindcss/typography")],
 };

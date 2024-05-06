@@ -17,6 +17,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.13",
     "@types/papaparse": "^5.3.14",
     "astro": "^4.7.1",
     "daisyui": "^4.10.5",
