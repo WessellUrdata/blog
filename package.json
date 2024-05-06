@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^10.2.5",
+    "@fontsource-variable/noto-sans": "^5.0.5",
+    "@fontsource-variable/noto-sans-hk": "^5.0.6",
     "dayjs": "^1.11.11",
     "papaparse": "^5.4.1"
   },

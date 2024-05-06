@@ -5,16 +5,18 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import WeatherCard from "../components/WeatherCard.astro";
-import WeatherInfo from "../components/WeatherInfo.astro";
+import Footer from "../components/Footer.astro";
+
 import "../styles/global.css";
 
+// Fonts
+import "@fontsource-variable/noto-sans";
+import "@fontsource-variable/noto-sans-hk";
+
+// Twemoji injection
 import twemoji from "../twemoji/twemoji.esm.js";
-
 import { twemojiSettings } from "../constants.ts";
-
 const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twemojiSettings);
 ---
 
