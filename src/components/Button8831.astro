@@ -9,5 +9,5 @@ const { href, alt, src } = Astro.props;
 ---
 
 <a href={href} target="_blank" rel="noopener noreferrer">
-  <img src={src} alt={alt} class="w-[88px] h-[31px]" loading="lazy" />
+  <img src={src} alt={alt} class="w-[88px] h-[31px]" style="image-rendering: pixelated;" loading="lazy" />
 </a>
