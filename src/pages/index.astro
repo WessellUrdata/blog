@@ -1,5 +1,9 @@
 ---
+import { getCollection } from "astro:content";
+
 import Shell from "../layouts/Shell.astro";
+
+const allPosts = await getCollection("blog");
 ---
 
 <Shell>
@@ -10,6 +14,14 @@ import Shell from "../layouts/Shell.astro";
 
     <p>測試</p>
   </article>
+  <!-- {
+    allPosts.map(
+      (post) =>
+
+  
+        post.id
+    
+  } -->
   <!-- <div id="weather" class="flex flex-col absolute right-0">
       <div class="flex flex-col items-stretch">
         <WeatherInfo />

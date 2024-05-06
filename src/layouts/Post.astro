@@ -3,14 +3,21 @@ import Shell from "./Shell.astro";
 
 import dayjs from "dayjs";
 
-const { title, dateTime } = Astro.props.frontmatter;
-const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (Z)");
+const { title, dateTime, cover, tags } = Astro.props.frontmatter;
+const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)");
 ---
 
 <Shell title={title}>
-  <article class="prose max-w-none prose-headings:my-[12px]">
+  <article class="prose max-w-none prose-headings:my-[12px] prose-img:w-5/6 prose-img:h-5/6">
     <h1>{title}</h1>
-    <div>Published on: {parsedDateTime}</div>
+    <div class="my-2">{parsedDateTime}</div>
+    <div class="my-2">
+      Tags: {tags.map((tag: string[]) => <span class="badge badge-accent badge-outline mx-1 p-2.5">{tag}</span>)}
+    </div>
+    <div class="flex flex-col place-items-center">
+      <img src={cover.src} alt={cover.alt} class="mb-1" />
+      <span class="text-sm italic">{cover.alt}</span>
+    </div>
     <slot />
   </article>
 </Shell>
