@@ -34,6 +34,7 @@ const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twem
 
     <!-- Open Graph stuff if there's any -->
     <meta property="og:site_name" content="Wessell's ☺️site" />
+    <meta name="theme-color" content="#ffcc4d" />
     {ogTitle && <meta property="og:title" content={ogTitle} />}
     {ogImage && <meta property="og:image" content={ogImage} />}
     {ogDescription && <meta property="og:description" content={ogDescription} />}
