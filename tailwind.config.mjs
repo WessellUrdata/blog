@@ -7,7 +7,16 @@ export default {
     fontFamily: {
       sans: ["Noto Sans Variable", "Noto Sans HK Variable", ...defaultTheme.fontFamily.sans],
     },
-    extend: {},
+    extend: {
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            // color: theme("colors.gray.300"),
+            // ...
+          },
+        },
+      }),
+    },
   },
   daisyui: {
     themes: [
@@ -26,9 +35,9 @@ export default {
       },
     ],
     darkTheme: "dark",
-    base: true,
-    styled: true,
-    utils: true,
+    // base: true,
+    // styled: true,
+    // utils: true,
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };

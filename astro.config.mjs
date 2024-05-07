@@ -15,5 +15,11 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
+
+    // for syntax highlighting
+    shikiConfig: {
+      // Enable word wrap to prevent horizontal scrolling
+      wrap: true,
+    },
   },
 });

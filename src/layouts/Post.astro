@@ -8,7 +8,17 @@ const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)");
 ---
 
 <Shell title={title}>
-  <article class="prose max-w-none prose-headings:my-[12px] prose-img:w-5/6 prose-img:h-5/6">
+  <article
+    class="max-w-none
+    prose
+    prose-headings:my-[12px]
+    prose-img:mx-auto
+    prose-img:max-h-[360px]
+    prose-img:w-auto
+    prose-img:object-contain
+    sm:prose-img:h-5/6
+    sm:prose-img:w-5/6"
+  >
     <h1>{title}</h1>
     <div class="my-2">{parsedDateTime}</div>
     <div class="my-2">
