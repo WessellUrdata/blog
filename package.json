@@ -15,6 +15,7 @@
     "@fontsource-variable/noto-sans": "^5.0.5",
     "@fontsource-variable/noto-sans-hk": "^5.0.6",
     "dayjs": "^1.11.11",
+    "katex": "^0.16.10",
     "papaparse": "^5.4.1",
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0"

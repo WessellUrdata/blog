@@ -3,6 +3,8 @@ import Shell from "./Shell.astro";
 
 import dayjs from "dayjs";
 
+import "katex/dist/katex.min.css";
+
 const { title, dateTime, cover, tags } = Astro.props.frontmatter;
 const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)");
 ---
