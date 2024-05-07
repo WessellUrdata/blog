@@ -5,7 +5,8 @@ import dayjs from "dayjs";
 const posts = await getCollection("blog");
 ---
 
-<div>
+<div class="my-8">
+  <h1 class="text-3xl font-bold text-accent my-4">Blog posts ✍️☺️</h1>
   {
     posts.map((post) => (
       <div class="px-2 py-4 flex flex-col gap-y-2 sm:flex-row-reverse border-y-[.5px] border-gray-400">
