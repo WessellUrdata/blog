@@ -5,8 +5,8 @@ interface Props {
 
 const { title } = Astro.props;
 
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Header from "../components/Layout/Header.astro";
+import Footer from "../components/Layout/Footer.astro";
 
 import "../styles/global.css";
 
@@ -34,7 +34,7 @@ const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twem
   </head>
   <body class="flex flex-col min-h-dvh">
     <Header />
-    <main class="flex-grow m-4 px-4 mx-auto max-w-[780px]">
+    <main class="w-full flex-grow m-4 px-4 mx-auto max-w-[780px]">
       <Fragment set:html={slotHtml} />
     </main>
     <Footer />

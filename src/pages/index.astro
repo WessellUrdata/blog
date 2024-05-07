@@ -1,25 +1,17 @@
 ---
-import { getCollection } from "astro:content";
-
 import Shell from "../layouts/Shell.astro";
+import PostList from "../components/Layout/BlogpostList.astro";
 ---
 
 <Shell>
-  <article class="prose">
+  <!-- <section>
     <p>Hi! Welcome to my WIP website! ☺️</p>
 
     <p>It's pretty barren right now, and I'm trying to flesh it out.</p>
+  </section> -->
 
-    <p>測試</p>
-  </article>
-  <!-- {
-    allPosts.map(
-      (post) =>
+  <PostList />
 
-  
-        post.id
-    
-  } -->
   <!-- <div id="weather" class="flex flex-col absolute right-0">
       <div class="flex flex-col items-stretch">
         <WeatherInfo />

@@ -7,16 +7,7 @@ export default {
     fontFamily: {
       sans: ["Noto Sans Variable", "Noto Sans HK Variable", ...defaultTheme.fontFamily.sans],
     },
-    extend: {
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            // color: theme("colors.gray.300"),
-            // ...
-          },
-        },
-      }),
-    },
+    extend: {},
   },
   daisyui: {
     themes: [

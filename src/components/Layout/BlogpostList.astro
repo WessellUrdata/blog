@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+
+const posts = await getCollection("blog");
+---
+
+<div>
+  {
+    posts.map((post) => (
+      <div class="px-2 py-4 flex flex-col gap-y-2 border-y-[.5px] border-gray-400">
+        <a
+          class="text-2xl font-medium text-accent hover:brightness-75 transition"
+          href={post.collection + "/" + post.slug}
+        >
+          {post.data.title}
+        </a>
+        <span class="flex flex-row flex-wrap text-sm gap-x-1 gap-y-2">
+          {dayjs(post.data.dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)")}{" "}
+          <span>
+            {post.data.tags.map((tag: string[]) => (
+              <span class="badge badge-accent badge-outline mx-0.5 p-2 text-xs">{tag}</span>
+            ))}
+          </span>
+        </span>
+        <p class="mt-2">{post.data.description}</p>
+      </div>
+    ))
+  }
+</div>
