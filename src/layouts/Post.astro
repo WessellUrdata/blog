@@ -5,11 +5,11 @@ import dayjs from "dayjs";
 
 import "katex/dist/katex.min.css";
 
-const { title, dateTime, cover, tags } = Astro.props.frontmatter;
+const { title, dateTime, cover, tags, description } = Astro.props.frontmatter;
 const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)");
 ---
 
-<Shell title={title}>
+<Shell title={title} ogTitle={title} ogDescription={description} ogImage={cover ? cover.src : null}>
   <article
     class="max-w-none
     prose
