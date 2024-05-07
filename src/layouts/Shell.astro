@@ -32,6 +32,8 @@ const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twem
     <meta name="viewport" content="width=device-width" />
     <title>{title ? `${title} -` : ""} Wessell's ☺️site</title>
 
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
     <!-- Open Graph stuff if there's any -->
     <meta property="og:site_name" content="Wessell's ☺️site" />
     <meta name="theme-color" content="#ffcc4d" />
@@ -42,7 +44,9 @@ const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twem
     <!-- Favicon BS, SVG/PNG/ICO should be enough, and I don't care about Apple devices -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
-  </head><body class="flex flex-col min-h-dvh">
+  </head>
+
+  <body class="flex flex-col min-h-dvh">
     <Header />
     <main class="w-full flex-grow m-4 px-4 mx-auto max-w-[780px]">
       <Fragment set:html={slotHtml} />

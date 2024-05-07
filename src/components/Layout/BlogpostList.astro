@@ -10,11 +10,11 @@ const posts = await getCollection("blog");
     posts.map((post) => (
       <div class="px-2 py-4 flex flex-col gap-y-2 sm:flex-row-reverse border-y-[.5px] border-gray-400">
         {post.data.cover ? (
-          <a class="hover:brightness-75 transition" href={post.collection + "/" + post.slug}>
+          <a class="hover:brightness-75 transition sm:h-full sm:my-auto" href={post.collection + "/" + post.slug}>
             <img
               src={post.data.cover.src}
               alt={post.data.cover.alt}
-              class="mx-auto sm:max-w-[240px] w-11/12 object-contain mb-1 sm:mb-0 sm:mr-4 cover-image"
+              class="mx-auto sm:max-w-[240px] w-11/12 object-contain cover-image"
             />
           </a>
         ) : (
