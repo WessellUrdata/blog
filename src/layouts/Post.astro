@@ -25,10 +25,16 @@ const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)");
     <div class="my-2">
       {tags.map((tag: string[]) => <span class="badge badge-accent badge-outline mx-0.5 p-2 text-xs">{tag}</span>)}
     </div>
-    <div class="flex flex-col place-items-center">
-      <img src={cover.src} alt={cover.alt} class="mb-1" />
-      <span class="text-sm italic">{cover.alt}</span>
-    </div>
+    {
+      cover ? (
+        <div class="flex flex-col place-items-center">
+          <img src={cover.src} alt={cover.alt} class="mb-1" />
+          <span class="text-sm italic">{cover.alt}</span>
+        </div>
+      ) : (
+        ""
+      )
+    }
     <slot />
   </article>
 </Shell>
