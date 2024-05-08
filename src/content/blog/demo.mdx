@@ -15,11 +15,13 @@ import Jyutping from "../../components/Jyutping.astro";
 
 This is just a little playground to test if I can get what I want to use for my blog working.
 
-## Twemoji 🗨️🐦
+## Twemoji :left_speech_bubble::bird:
 
 I've set up Twemoji injection a long while ago, but here it is:
 
-☺️🫂‼️
+:relaxed:🫂:bangbang:
+
+PS: I've also set up [remark-emoji](https://github.com/rhysd/remark-emoji) to make typing emoji less of a pain. `:people_hugging:` doesn't work right now and I'll look into it when I'm free.
 
 ## LaTeX ☝️🤓
 
@@ -75,9 +77,12 @@ I wrote some code to fetch weather data from the [Hong Kong Observatory](https:/
 It's quite a bit ugly right now, but it does work. I might come back and touch up on the CSS later.
 
 <div class="not-prose flex flex-col mx-auto w-[360px]">
-  <WeatherInfo />
-  <WeatherCard displayLocation="Hung Hom" API_URL="https://www.hko.gov.hk/PDADATA/locspc/data/gridData/0906_en.xml" />
+  Removed for the time being.
+  {/* <WeatherInfo />
+  <WeatherCard displayLocation="Hung Hom" API_URL="https://www.hko.gov.hk/PDADATA/locspc/data/gridData/0906_en.xml" /> */}
 </div>
+
+Turns out it's broken right now due to my sloppy spaghetti architecture. To be fixed Soon :relaxed: .
 
 ## Jyutping 🇭🇰🗣️
 
@@ -88,6 +93,9 @@ Some Jyutping injection! No JavaScript needed! Powered by [@CanCLID/to-jyutping]
 <Jyutping>
 睇得明嘅話，同我講 「☺️‼️」啦！
 
-昔者 📅 莊周 👴 夢 💭 為胡蝶 🦋，栩栩然胡蝶 🦋 也！不知 🤷 周 👴 也。俄然覺 😲，則蘧蘧然 🥴 周也 👴。不知 🤷 周 👴 之夢 💭 為胡蝶 🦋 與，胡蝶 🦋 之夢 💭 為周 👴 與？
+{/* prettier-ignore */}
+昔者:calendar:莊周👴夢💭為胡蝶🦋，栩栩然胡蝶🦋也！不知🤷周👴也。俄然覺😲，則蘧蘧然🥴周也👴。不知🤷周👴之夢💭為胡蝶🦋與，胡蝶🦋之夢💭為周👴與？
 
 </Jyutping>
+
+Note that the result is not perfect. For example, 與 was rendered as [`jyu5`](https://en.wiktionary.org/wiki/%E8%88%87#Pronunciation_1), but which should have been [`jyu4`](https://en.wiktionary.org/wiki/%E8%88%87#Pronunciation_3) in the literary/archaic sense.
