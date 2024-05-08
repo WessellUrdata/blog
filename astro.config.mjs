@@ -12,7 +12,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://wesl.cc",
   integrations: [tailwind(), mdx(), sitemap()],
-  output: "server",
+  output: "hybrid",
   adapter: cloudflare(),
   markdown: {
     remarkPlugins: [remarkMath],
