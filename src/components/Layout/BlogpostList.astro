@@ -6,7 +6,21 @@ const posts = await getCollection("blog");
 ---
 
 <div class="my-8">
-  <h1 class="text-3xl font-bold text-accent my-4">Blog posts ✍️☺️</h1>
+  <span class="flex my-4">
+    <h1 class="text-3xl font-bold text-accent">Blog posts ✍️☺️</h1>
+
+    <a href="/rss.xml" class="ml-auto my-auto align-middle">
+      <button class="btn btn-sm btn-outline btn-accent">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 my-auto">
+          <path
+            d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"
+          ></path>
+        </svg>
+        RSS Feed
+      </button>
+    </a>
+  </span>
+
   {
     posts.map((post) => (
       <div class="px-2 py-4 flex flex-col gap-y-2 sm:flex-row-reverse border-y-[.5px] border-gray-400">
