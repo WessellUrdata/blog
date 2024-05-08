@@ -2,12 +2,19 @@
 import Shell from "./Shell.astro";
 
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(timezone);
+dayjs.extend(utc);
+
+import { tz } from "../constants.ts";
 
 import "katex/dist/katex.min.css";
 import ImageCpn from "../components/ImageCpn.astro";
 
 const { title, dateTime, cover, tags, description } = Astro.props.frontmatter;
-const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)");
+const parsedDateTime = dayjs(dateTime).tz(tz).format("YYYY-MM-DD, HH:mm (UTC Z)");
 ---
 
 <Shell title={title} ogTitle={title} ogDescription={description} ogImage={cover ? cover.src : null}>

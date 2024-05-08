@@ -1,6 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+
+import { tz } from "../../constants.ts";
+
 import ImageCpn from "../ImageCpn.astro";
 
 const posts = await getCollection("blog");
@@ -44,7 +52,7 @@ const posts = await getCollection("blog");
             {post.data.title}
           </a>
           <span class="flex flex-row flex-wrap text-sm gap-x-1 gap-y-2">
-            {dayjs(post.data.dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)")}{" "}
+            {dayjs(post.data.dateTime).tz(tz).format("YYYY-MM-DD, HH:mm (UTC Z)")}
             <span>
               {post.data.tags.map((tag: string[]) => (
                 <span class="badge badge-accent badge-outline mx-0.5 p-2 text-xs">{tag}</span>
