@@ -34,14 +34,14 @@ const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twem
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Open Graph stuff if there's any -->
+    {/* Open Graph stuff if there's any */}
     <meta property="og:site_name" content="Wessell's ☺️site" />
     <meta name="theme-color" content="#ffcc4d" />
     {ogTitle && <meta property="og:title" content={ogTitle} />}
     <meta property="og:image" content={ogImage ? ogImage : "/logo.png"} />
     {ogDescription && <meta property="og:description" content={ogDescription} />}
 
-    <!-- Favicon BS, SVG/PNG/ICO should be enough, and I don't care about Apple devices -->
+    {/* Favicon BS, SVG/PNG/ICO should be enough, and I don't care about Apple devices */}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
