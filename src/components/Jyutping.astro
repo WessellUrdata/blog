@@ -14,9 +14,7 @@ const parsedToHtml = parsedText.map((pair) => {
 });
 ---
 
-<p class="jyutping-parsed text-lg">
-  <Fragment set:html={parsedToHtml} />
-</p>
+<Fragment set:html={parsedToHtml} />
 
 <style is:global>
   ruby {
