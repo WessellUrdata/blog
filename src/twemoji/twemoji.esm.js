@@ -125,10 +125,11 @@ var twemoji = (function () {
         attrname;
       if (iconId && src) {
         ret = "<img ".concat(
+          'loading="lazy"',
           'class="',
           options.className,
           '" ',
-          'draggable="false" ',
+          'draggable="false", ',
           'alt="',
           rawText,
           '"',

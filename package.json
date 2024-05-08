@@ -18,7 +18,8 @@
     "katex": "^0.16.10",
     "papaparse": "^5.4.1",
     "rehype-katex": "^7.0.0",
-    "remark-math": "^6.0.0"
+    "remark-math": "^6.0.0",
+    "to-jyutping": "^1.0.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.5.10",

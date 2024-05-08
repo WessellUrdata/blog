@@ -1,0 +1,42 @@
+---
+import ToJyutping from "to-jyutping";
+
+const text = await Astro.slots.render("default");
+
+const parsedText = ToJyutping.getJyutpingList(text);
+
+const parsedToHtml = parsedText.map((pair) => {
+  if (pair[1] != null) {
+    return `<ruby>${pair[0]}<rt class="rt-en">${pair[1]}</rt></ruby>`;
+  } else {
+    return `${pair[0]}`;
+  }
+});
+---
+
+<link href="https://fonts.bunny.net/css?family=inter:300,400,500,600,700,800,900" rel="stylesheet" />
+
+<p class="jyutping-parsed text-lg">
+  <Fragment set:html={parsedToHtml} />
+</p>
+
+<style is:global>
+  ruby {
+    ruby-align: space-around;
+  }
+
+  rt {
+    font-weight: 600;
+    letter-spacing: -0.05em;
+    font-family: "Inter";
+    display: var(--rt-display);
+  }
+
+  :root {
+    --rt-display: none;
+  }
+
+  #jyutping-toggle:checked ~ * {
+    --rt-display: ruby-text;
+  }
+</style>

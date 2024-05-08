@@ -13,4 +13,4 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/**/*.{j
 if (!images[src]) throw new Error(`"${src}" does not exist in glob."`);
 ---
 
-<Picture src={images[src]()} alt={alt} class={classList} formats={["avif", "webp", "jpg", "jpeg", "png"]} />
+<Picture src={images[src]()} alt={alt} class={classList} formats={["avif", "webp", "jpg"]} />
