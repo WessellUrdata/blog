@@ -5,7 +5,7 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     fontFamily: {
-      sans: ["Noto Sans Variable", "Noto Sans HK Variable", ...defaultTheme.fontFamily.sans],
+      sans: [...defaultTheme.fontFamily.sans],
     },
     extend: {},
   },
@@ -26,9 +26,6 @@ export default {
       },
     ],
     darkTheme: "dark",
-    // base: true,
-    // styled: true,
-    // utils: true,
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
 };
