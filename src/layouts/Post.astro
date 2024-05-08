@@ -4,6 +4,7 @@ import Shell from "./Shell.astro";
 import dayjs from "dayjs";
 
 import "katex/dist/katex.min.css";
+import ImageCpn from "../components/ImageCpn.astro";
 
 const { title, dateTime, cover, tags, description } = Astro.props.frontmatter;
 const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)");
@@ -28,7 +29,7 @@ const parsedDateTime = dayjs(dateTime).format("YYYY-MM-DD, HH:mm (UTC Z)");
     {
       cover ? (
         <div class="flex flex-col place-items-center">
-          <img src={cover.src} alt={cover.alt} class="mb-1" />
+          <ImageCpn src={cover.src} alt={cover.alt} classList="mb-1" />
           <span class="text-sm italic">{cover.alt}</span>
         </div>
       ) : (
