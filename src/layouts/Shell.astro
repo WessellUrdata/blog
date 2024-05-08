@@ -18,6 +18,8 @@ import "../styles/global.css";
 import twemoji from "../twemoji/twemoji.esm.js";
 import { twemojiSettings } from "../constants.ts";
 const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twemojiSettings);
+
+export const prerender = true;
 ---
 
 <!doctype html>
