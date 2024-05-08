@@ -12,12 +12,16 @@ import { tz } from "../constants.ts";
 
 import "katex/dist/katex.min.css";
 import ImageCpn from "../components/ImageCpn.astro";
+import { getImage } from "astro:assets";
 
 const { title, dateTime, cover, tags, description } = Astro.props.frontmatter;
 const parsedDateTime = dayjs(dateTime).tz(tz).format("YYYY-MM-DD, HH:mm (UTC Z)");
+
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/**/*.{jpeg,jpg,png,gif}");
+const ogImage = cover ? (await images[cover.src]()).default.src : undefined;
 ---
 
-<Shell title={title} ogTitle={title} ogDescription={description} ogImage={cover ? cover.src : null}>
+<Shell title={title} ogTitle={title} ogDescription={description} ogImage={ogImage}>
   <article
     class="max-w-none
     prose
