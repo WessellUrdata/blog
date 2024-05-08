@@ -1,0 +1,9 @@
+---
+import Shell from "./Shell.astro";
+
+const { title } = Astro.props.frontmatter;
+---
+
+<Shell title={title} ogTitle={title}>
+  <slot />
+</Shell>
