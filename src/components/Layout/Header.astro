@@ -2,7 +2,7 @@
 import { twemojiVer } from "../../constants.ts";
 ---
 
-<header class="min-h-16 w-full bg-primary border-b-[.5px] border-gray-400 flex items-center">
+<header class="min-h-16 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-row items-center">
   <a
     class="inline-flex items-center text-xl h-14 min-h-14 cursor-pointer select-none px-2 text-center gap-2 font-semibold"
     tabindex="0"
@@ -11,12 +11,18 @@ import { twemojiVer } from "../../constants.ts";
     <img class="w-12 h-12" alt="Wessell's site logo" src="/logo.svg" />
     <span>Wessell's <img class="emoji" draggable="false" alt="☺️" src=`/twemoji/${twemojiVer}/263a.svg` />site</span>
   </a>
-  <nav class="px-1 flex items-center">
-    <ul>
+  <nav class="px-1">
+    <ul class="flex flex-row">
       <li>
-        <a class="btn btn-ghost" href="/about"
+        <a class="btn btn-ghost p-1" href="/about"
           >About me <img class="emoji" draggable="false" alt="🫂" src=`/twemoji/${twemojiVer}/1fac2.svg` /></a
         >
+      </li>
+      <li>
+        <a class="btn btn-ghost p-1" href="/screensaver">
+          <span> <img class="emoji" draggable="false" alt="☺️" src=`/twemoji/${twemojiVer}/263a.svg` />saver</span>
+          <img class="emoji mx-0" draggable="false" alt="🖥️" src=`/twemoji/${twemojiVer}/1f5a5.svg` />
+        </a>
       </li>
     </ul>
   </nav>

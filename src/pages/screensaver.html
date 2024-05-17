@@ -18,7 +18,102 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
 
-  <body>
-    Stuff
+  <body
+    style="
+      margin: auto;
+      background-color: #232629;
+      min-height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    "
+  >
+    <!-- The Logo -->
+    <div id="bouncing-relaxed" style="height: 96px; width: 96px; position: absolute; left: 0px; top: 0px">
+      <!-- This is just the svg for the relaxed emoji. If you need something else, feel free to change it -->
+      <svg version="1.1" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="m36 18c0 9.94-8.06 18-18 18-9.94 0-18-8.06-18-18 0-9.94 8.06-18 18-18 9.94 0 18 8.06 18 18"
+          fill="#FFCC4D"
+          id="relaxedBg"
+        />
+        <circle cx="29" cy="22" r="5" fill="#FF7892" />
+        <circle cx="7" cy="22" r="5" fill="#FF7892" />
+        <path
+          d="M29 14c-.256 0-.512-.098-.707-.293-2.577-2.575-7.055-1.736-7.099-1.726-.548.109-1.067-.247-1.174-.787-.107-.541.242-1.066.783-1.174.227-.046 5.563-1.065 8.903 2.273.391.391.391 1.023 0 1.414-.194.195-.45.293-.706.293zM7 14c-.256 0-.512-.098-.707-.293-.391-.391-.391-1.023 0-1.414 3.34-3.341 8.678-2.318 8.903-2.273.542.108.893.635.784 1.177-.108.54-.633.892-1.175.785-.069-.015-4.529-.843-7.098 1.726-.195.194-.451.292-.707.292zm19 5c-.256 0-.512-.098-.707-.293-1.304-1.305-4.09-.974-5.052-.736-.54.132-1.077-.195-1.211-.73-.133-.536.192-1.077.728-1.211.186-.046 4.575-1.111 6.949 1.263.391.391.391 1.023 0 1.414-.195.195-.451.293-.707.293zm-16 0c-.256 0-.512-.098-.707-.293-.391-.391-.391-1.023 0-1.414 2.373-2.373 6.764-1.309 6.95-1.263.535.134.86.675.727 1.211-.132.536-.673.863-1.21.73-.964-.237-3.749-.567-5.052.736-.196.195-.452.293-.708.293z"
+          fill="#664500"
+        />
+        <path
+          d="m18 29.5c-4.34 0-5.47-4.34-5.48-4.38-0.055-0.218 0.043-0.445 0.238-0.557 0.191-0.106 0.43-0.079 0.591 0.072 0.039 0.034 1.07 0.864 4.66 0.864 3.64 0 4.65-0.855 4.66-0.863 0.165-0.146 0.409-0.171 0.597-0.06 0.188 0.113 0.284 0.331 0.231 0.544-0.011 0.044-1.14 4.38-5.48 4.38zm-5-4.5h0.01z"
+          style="fill: #664500"
+        />
+      </svg>
+    </div>
+    <div
+      id="bgText"
+      style="
+        width: 100%;
+        text-align: center;
+        color: oklch(0.853356 0.001418 248.094 / 0.4);
+        font-family: Arial;
+        font-size: 2rem;
+      "
+    >
+      Corner hits: <span id="cornerHitCount">0</span>
+    </div>
   </body>
+
+  <script>
+    const relaxedDiv = document.getElementById("bouncing-relaxed");
+    const relaxedSvg = document.getElementById("relaxedBg");
+    const hitCountSpan = document.getElementById("cornerHitCount");
+
+    // randomize the initial position
+    // This is not really fair since the average is not in the center
+    relaxedDiv.style.left = Math.random() * 60 + "vw";
+    relaxedDiv.style.top = Math.random() * 80 + "vh";
+
+    // randomize the direction
+    let speedX = 2 * (Math.random() < 0.5 ? -1 : 1);
+    let speedY = 2 * (Math.random() < 0.5 ? -1 : 1);
+
+    let vHit = false;
+    let hHit = false;
+
+    let cornerHitCount = 0;
+
+    function animate() {
+      const container = relaxedDiv.parentElement;
+      const { x, y } = relaxedDiv.getBoundingClientRect(); // from the top left corner of the logo
+
+      // Reverse direction when the logo hits a boundary
+      if (x + relaxedDiv.offsetWidth + speedX > container.offsetWidth || x < 0) {
+        speedX *= -1;
+        hHit = true;
+      }
+      if (y + relaxedDiv.offsetHeight + speedY > container.offsetHeight || y < 0) {
+        speedY *= -1;
+        vHit = true;
+      }
+
+      // Move the logo
+      relaxedDiv.style.left = relaxedDiv.offsetLeft + speedX + "px";
+      relaxedDiv.style.top = relaxedDiv.offsetTop + speedY + "px";
+
+      if (hHit && vHit) {
+        hitCountSpan.innerText = ++cornerHitCount;
+      }
+
+      if (hHit || vHit) {
+        relaxedSvg.style.fill = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      }
+
+      // Reset the hit flags
+      hHit = vHit = false;
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
 </html>
