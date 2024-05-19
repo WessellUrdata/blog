@@ -69,9 +69,8 @@
     const hitCountSpan = document.getElementById("cornerHitCount");
 
     // randomize the initial position
-    // This is not really fair since the average is not in the center
-    relaxedDiv.style.left = Math.random() * 60 + "vw";
-    relaxedDiv.style.top = Math.random() * 80 + "vh";
+    relaxedDiv.style.left = 20 + Math.random() * 60 + "vw";
+    relaxedDiv.style.top = 20 + Math.random() * 60 + "vh";
 
     // randomize the direction
     let speedX = 2 * (Math.random() < 0.5 ? -1 : 1);
