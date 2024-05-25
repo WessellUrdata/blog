@@ -12,6 +12,10 @@ import { tz } from "../../constants.ts";
 import ImageCpn from "../ImageCpn.astro";
 
 const posts = await getCollection("blog");
+
+posts.sort((a, b) => {
+  return dayjs(b.data.dateTime).unix() - dayjs(a.data.dateTime).unix();
+});
 ---
 
 <div class="my-8">
