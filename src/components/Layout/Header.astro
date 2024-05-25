@@ -2,7 +2,7 @@
 import { twemojiVer } from "../../constants.ts";
 ---
 
-<header class="min-h-16 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-row items-center">
+<header class="min-h-16 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-col sm:flex-row items-center">
   <a
     class="inline-flex items-center text-xl h-14 min-h-14 cursor-pointer select-none px-2 text-center gap-2 font-semibold"
     tabindex="0"
@@ -11,17 +11,39 @@ import { twemojiVer } from "../../constants.ts";
     <img class="w-12 h-12" alt="Wessell's site logo" src="/logo.svg" />
     <span>Wessell's <img class="emoji" draggable="false" alt="☺️" src=`/twemoji/${twemojiVer}/263a.svg` />site</span>
   </a>
-  <nav class="px-1">
-    <ul class="flex flex-row">
+  <nav class="p-1">
+    <ul class="sm:flex sm:flex-row grid justify-items-center gap-y-1">
       <li>
-        <a class="btn btn-ghost p-1" href="/about"
-          >About me <img class="emoji" draggable="false" alt="🫂" src=`/twemoji/${twemojiVer}/1fac2.svg` /></a
-        >
+        <a class="btn btn-ghost" href="/about">
+          <span>
+            About me <img class="emoji" draggable="false" alt="🫂" src=`/twemoji/${twemojiVer}/1fac2.svg` />
+          </span>
+        </a>
       </li>
       <li>
-        <a class="btn btn-ghost p-1" href="/screensaver">
-          <span> <img class="emoji" draggable="false" alt="☺️" src=`/twemoji/${twemojiVer}/263a.svg` />saver</span>
-          <img class="emoji mx-0" draggable="false" alt="🖥️" src=`/twemoji/${twemojiVer}/1f5a5.svg` />
+        <a class="btn btn-ghost" href="/screensaver">
+          <span>
+            <img class="emoji" draggable="false" alt="☺️" src=`/twemoji/${twemojiVer}/263a.svg` />saver
+          </span>
+          <img class="emoji" draggable="false" alt="🖥️" src=`/twemoji/${twemojiVer}/1f5a5.svg` />
+        </a>
+      </li>
+      <li>
+        <a class="btn btn-ghost" href="https://dl.wesl.cc" target="_blank" rel="noopener noreferrer">
+          <span>
+            Public Downloads @ HK
+            <img class="emoji" draggable="false" alt="📦" src=`/twemoji/${twemojiVer}/1f4e6.svg` />
+            <img class="emoji" draggable="false" alt="🇭🇰" src=`/twemoji/${twemojiVer}/1f1ed-1f1f0.svg` />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="btn btn-ghost" href="https://dl.us.wesl.cc" target="_blank" rel="noopener noreferrer">
+          <span>
+            Public Downloads @ US
+            <img class="emoji" draggable="false" alt="📦" src=`/twemoji/${twemojiVer}/1f4e6.svg` />
+            <img class="emoji" draggable="false" alt="🇺🇸" src=`/twemoji/${twemojiVer}/1f1fa-1f1f8.svg` />
+          </span>
         </a>
       </li>
     </ul>
