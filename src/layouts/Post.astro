@@ -41,7 +41,7 @@ const ogImage = cover ? (await images[cover.src]()).default.src : undefined;
     {
       cover ? (
         <div class="flex flex-col place-items-center">
-          <ImageCpn src={cover.src} alt={cover.alt} classList="mb-1" />
+          <ImageCpn src={cover.src} alt={cover.alt} classList="mb-1 bg-gray-700 rounded-lg" />
           <span class="text-sm italic">{cover.alt}</span>
         </div>
       ) : (
