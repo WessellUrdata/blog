@@ -28,9 +28,7 @@
       align-items: center;
     "
   >
-    <!-- The Logo -->
     <div id="bouncing-relaxed" style="height: 96px; width: 96px; position: absolute; left: 0px; top: 0px">
-      <!-- This is just the svg for the relaxed emoji. If you need something else, feel free to change it -->
       <svg version="1.1" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
         <path
           d="m36 18c0 9.94-8.06 18-18 18-9.94 0-18-8.06-18-18 0-9.94 8.06-18 18-18 9.94 0 18 8.06 18 18"
@@ -50,7 +48,6 @@
       </svg>
     </div>
     <div
-      id="bgText"
       style="
         width: 100%;
         text-align: center;
@@ -69,12 +66,12 @@
     const hitCountSpan = document.getElementById("cornerHitCount");
 
     // randomize the initial position
-    relaxedDiv.style.left = 20 + Math.random() * 60 + "vw";
-    relaxedDiv.style.top = 20 + Math.random() * 60 + "vh";
+    relaxedDiv.style.left = 30 + Math.random() * 40 + "vw";
+    relaxedDiv.style.top = 30 + Math.random() * 40 + "vh";
 
     // randomize the direction
-    let speedX = 2 * (Math.random() < 0.5 ? -1 : 1);
-    let speedY = 2 * (Math.random() < 0.5 ? -1 : 1);
+    let speedX = 1 * (Math.random() < 0.5 ? -1 : 1);
+    let speedY = 1 * (Math.random() < 0.5 ? -1 : 1);
 
     let vHit = false;
     let hHit = false;
@@ -83,32 +80,35 @@
 
     function animate() {
       const container = relaxedDiv.parentElement;
-      const { x, y } = relaxedDiv.getBoundingClientRect(); // from the top left corner of the logo
+      const updatesPerFrame = 2;
+      for (let i = 0; i < updatesPerFrame; i++) {
+        const { x, y } = relaxedDiv.getBoundingClientRect(); // from the top left corner of the logo
 
-      // Reverse direction when the logo hits a boundary
-      if (x + relaxedDiv.offsetWidth + speedX > container.offsetWidth || x < 0) {
-        speedX *= -1;
-        hHit = true;
+        // Reverse direction when the logo hits a boundary
+        if (x + relaxedDiv.offsetWidth + Math.abs(speedX) > container.offsetWidth || x < Math.abs(speedX)) {
+          speedX *= -1;
+          hHit = true;
+        }
+        if (y + relaxedDiv.offsetHeight + Math.abs(speedY) > container.offsetHeight || y < Math.abs(speedY)) {
+          speedY *= -1;
+          vHit = true;
+        }
+
+        // Move the logo
+        relaxedDiv.style.left = relaxedDiv.offsetLeft + speedX + "px";
+        relaxedDiv.style.top = relaxedDiv.offsetTop + speedY + "px";
+
+        if (hHit && vHit) {
+          hitCountSpan.innerText = ++cornerHitCount;
+        }
+
+        if (hHit || vHit) {
+          relaxedSvg.style.fill = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        }
+
+        // Reset the hit flags
+        hHit = vHit = false;
       }
-      if (y + relaxedDiv.offsetHeight + speedY > container.offsetHeight || y < 0) {
-        speedY *= -1;
-        vHit = true;
-      }
-
-      // Move the logo
-      relaxedDiv.style.left = relaxedDiv.offsetLeft + speedX + "px";
-      relaxedDiv.style.top = relaxedDiv.offsetTop + speedY + "px";
-
-      if (hHit && vHit) {
-        hitCountSpan.innerText = ++cornerHitCount;
-      }
-
-      if (hHit || vHit) {
-        relaxedSvg.style.fill = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      }
-
-      // Reset the hit flags
-      hHit = vHit = false;
 
       requestAnimationFrame(animate);
     }
