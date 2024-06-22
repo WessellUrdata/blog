@@ -13,15 +13,12 @@ import rehypeKatex from "rehype-katex";
 export default defineConfig({
   site: "https://wesl.cc",
   integrations: [tailwind(), mdx(), sitemap()],
-  // output: "hybrid",
-  // adapter: cloudflare(),
   markdown: {
     remarkPlugins: [remarkMath, emoji],
     rehypePlugins: [rehypeKatex],
-    // for syntax highlighting
+    // shiki is used for code snippet syntax highlighting
     shikiConfig: {
-      // Enable word wrap to prevent horizontal scrolling
-      wrap: true,
+      wrap: true, // Enable word wrap to prevent horizontal scrolling
     },
   },
 });
