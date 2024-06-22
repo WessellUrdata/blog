@@ -9,8 +9,6 @@ import emoji from "remark-emoji";
 
 import rehypeKatex from "rehype-katex";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   site: "https://wesl.cc",
