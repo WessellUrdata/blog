@@ -5,6 +5,4 @@ const twemojiSettings = {
   ext: ".svg",
 };
 
-const tz = "Asia/Hong_Kong";
-
-export { twemojiVer, twemojiSettings, tz };
+export { twemojiVer, twemojiSettings };

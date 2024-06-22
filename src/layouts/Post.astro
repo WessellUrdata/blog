@@ -2,25 +2,15 @@
 import Shell from "./Shell.astro";
 
 import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
-
-dayjs.extend(timezone);
-dayjs.extend(utc);
-
-import { tz } from "../constants.ts";
 
 import "katex/dist/katex.min.css";
-import ImageCpn from "../components/ImageCpn.astro";
 
-const { title, dateTime, cover, tags, description } = Astro.props.frontmatter;
-const parsedDateTime = dayjs(dateTime).tz(tz).format("YYYY-MM-DD, HH:mm (UTC Z)");
+const { title, date, category, description } = Astro.props.frontmatter;
 
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/**/*.{jpeg,jpg,png,gif}");
-const ogImage = cover ? (await images[cover.src]()).default.src : undefined;
 ---
 
-<Shell title={title} ogTitle={title} ogDescription={description} ogImage={ogImage}>
+<Shell title={title} ogTitle={title} ogDescription={description}>
   <article
     class="max-w-none
     prose
@@ -33,20 +23,11 @@ const ogImage = cover ? (await images[cover.src]()).default.src : undefined;
     prose-code:break-words"
   >
     <h1>{title}</h1>
-    <div class="my-2">{parsedDateTime}</div>
+    <div class="my-2">{dayjs(date).format("YYYY-MM-DD")}</div>
     <div class="my-2">
-      {tags.map((tag: string[]) => <span class="badge badge-accent badge-outline mx-0.5 p-2 text-xs">{tag}</span>)}
+      <span class="badge badge-accent badge-outline mx-0.5 p-2 text-xs">{category}</span>
     </div>
-    {
-      cover ? (
-        <div class="flex flex-col place-items-center">
-          <ImageCpn src={cover.src} alt={cover.alt} classList="mb-1 bg-gray-700 rounded-lg" />
-          <span class="text-sm italic">{cover.alt}</span>
-        </div>
-      ) : (
-        ""
-      )
-    }
+
     <slot />
   </article>
 </Shell>

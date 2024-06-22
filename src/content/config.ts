@@ -6,9 +6,9 @@ const postsCollection = defineCollection({
   schema: () =>
     z.object({
       title: z.string(),
-      dateTime: z.date(),
+      date: z.date(),
       description: z.string(),
-      tags: z.array(z.string()),
+      category: z.string(),
     }),
 });
 // Export a single `collections` object to register your collection(s)
