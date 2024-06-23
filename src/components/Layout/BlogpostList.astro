@@ -32,7 +32,7 @@ posts.sort((a, b) => {
         {post.data.title}
       </a>
       <span class="flex text-sm gap-x-1">
-        {dayjs(post.data.dateTime).format("YYYY-MM-DD")}
+        {dayjs(post.data.date).format("YYYY-MM-DD")}
         <span class="badge badge-accent badge-outline mx-0.5 p-2 text-xs">{post.data.category}</span>
       </span>
       <p>{post.data.description}</p>
