@@ -6,8 +6,6 @@ import dayjs from "dayjs";
 import "katex/dist/katex.min.css";
 
 const { title, date, category, description } = Astro.props.frontmatter;
-
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/**/*.{jpeg,jpg,png,gif}");
 ---
 
 <Shell title={title} ogTitle={title} ogDescription={description}>
