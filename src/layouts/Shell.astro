@@ -47,7 +47,7 @@ const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twem
 
   <body class="flex flex-col min-h-dvh">
     <Header />
-    <main class="w-full flex-grow m-4 px-4 mx-auto max-w-[720px]">
+    <main class="w-full flex-grow m-4 px-4 mx-auto max-w-[900px]">
       <Fragment set:html={slotHtml} />
     </main>
     <Footer />
