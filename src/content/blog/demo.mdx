@@ -35,39 +35,40 @@ $$
 Here's a code snippet I wrote for my assignment for EIE3331:
 
 ```python
-  #!/usr/bin/env python3
+#!/usr/bin/env python3
 
-  from numpy import pi, cos, linspace
-  import matplotlib.pyplot as p
+from numpy import pi, cos, linspace
+import matplotlib.pyplot as p
 
-  ABCD = 5227 # last four digits of student ID to be sent
+ABCD = 5227 # last four digits of student ID to be sent
 
-  t = linspace(start=0, stop=10**-4, num=10**4) # time range = [0, 10^-4]
+t = linspace(start=0, stop=10**-4, num=10**4) # time range = [0, 10^-4]
 
-  f_c = 10**6 # carrier frequency 10^6 Hz
+f_c = 10**6 # carrier frequency 10^6 Hz
 
-  v_ct = 1000 * cos(2 * pi * f_c * t) # carrier signal v_c(t)
+v_ct = 1000 * cos(2 * pi * f_c * t) # carrier signal v_c(t)
 
-  f_m = 10**4 # message frequency 10^4 Hz
-  mt = ABCD/1000 * cos(2 * pi * f_m * t) # message signal m(t)
+f_m = 10**4 # message frequency 10^4 Hz
+mt = ABCD/1000 * cos(2 * pi * f_m * t) # message signal m(t)
 
-  v_at = mt * v_ct # DSB-SC signal v_a(t)
+v_at = mt * v_ct # DSB-SC signal v_a(t)
 
-  p.plot(t, v_at, color='k', linewidth=.5, clip_on=False)
+p.plot(t, v_at, color='k', linewidth=.5, clip_on=False)
 
-  p.ticklabel_format(style='scientific', axis='both', scilimits=(0,0), useMathText=True) # make the tick labels look less ugly
-  p.grid(visible=True, alpha=.5)
-  p.margins(0)
+p.ticklabel_format(style='scientific', axis='both', scilimits=(0,0), useMathText=True) # make the tick labels look less ugly
+p.grid(visible=True, alpha=.5)
+p.margins(0)
 
-  p.title('Waveform of DSB-SC signal $v_a(t)$ for $abcd = 5227$')
-  p.xlabel('$t$')
-  p.ylabel('Amplitude Level')
+p.title('Waveform of DSB-SC signal $v_a(t)$ for $abcd = 5227$')
+p.xlabel('$t$')
+p.ylabel('Amplitude Level')
 
-  p.savefig('q1.eps', bbox_inches='tight')
-  p.show()
+p.savefig('q1.eps', bbox_inches='tight')
+p.savefig('dsb-sc.svg', bbox_inches='tight')
+p.show()
 ```
 
-![A DSB-SC Waveform](/assets/blog/demo/dsb-sc.png)
+![A DSB-SC Waveform](/assets/blog/demo/dsb-sc.svg)
 
 ## Weather Cards 🏙️🌦️
 
