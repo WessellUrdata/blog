@@ -13,7 +13,6 @@
     "@astrojs/mdx": "^2.3.1",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
-    "@fontsource-variable/inter": "^5.0.18",
     "dayjs": "^1.11.11",
     "katex": "^0.16.10",
     "rehype-katex": "^7.0.0",
