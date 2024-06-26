@@ -7,7 +7,6 @@ export default {
     fontFamily: {
       sans: [...defaultTheme.fontFamily.sans],
     },
-    extend: {},
   },
   daisyui: {
     themes: [
