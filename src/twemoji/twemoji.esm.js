@@ -124,19 +124,7 @@ var twemoji = (function () {
         attrib,
         attrname;
       if (iconId && src) {
-        ret = "<img ".concat(
-          'loading="lazy"',
-          'class="',
-          options.className,
-          '" ',
-          'draggable="false", ',
-          'alt="',
-          rawText,
-          '"',
-          ' src="',
-          src,
-          '"'
-        );
+        ret = `<image class=${options.className} draggable=false src="${src}" />`;
         attrib = options.attributes(rawText, iconId);
         for (attrname in attrib) {
           if (
@@ -147,7 +135,6 @@ var twemoji = (function () {
             ret = ret.concat(" ", attrname, '="', escapeHTML(attrib[attrname]), '"');
           }
         }
-        ret = ret.concat("/>");
       }
       return ret;
     });

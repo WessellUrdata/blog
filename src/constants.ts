@@ -2,7 +2,7 @@ const twemojiVer = "15.1.0";
 const twemojiSettings = {
   base: "/twemoji",
   folder: `/${twemojiVer}`,
-  ext: ".svg",
+  ext: ".png",
 };
 
 export { twemojiVer, twemojiSettings };
