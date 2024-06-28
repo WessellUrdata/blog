@@ -13,11 +13,6 @@ import Header from "../components/Layout/Header.astro";
 import Footer from "../components/Layout/Footer.astro";
 
 import "../styles/global.css";
-
-// Twemoji injection
-import twemoji from "../twemoji/twemoji.esm.js";
-import { twemojiSettings } from "../constants.ts";
-const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twemojiSettings);
 ---
 
 <!doctype html>
@@ -45,11 +40,46 @@ const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twem
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
 
-  <body class="flex flex-col min-h-dvh">
+  <body>
     <Header />
-    <main class="w-full flex-grow m-4 px-4 mx-auto max-w-[900px]">
-      <Fragment set:html={slotHtml} />
+    <main>
+      <slot />
     </main>
     <Footer />
   </body>
 </html>
+
+<style is:global>
+  :root {
+    --text-accent: #ffcc4d;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+  }
+
+  main {
+    max-width: 900px;
+
+    flex-grow: 1;
+    padding: 1.5rem 1rem;
+    margin: 0px auto;
+
+    background-color: #232629;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 600;
+    color: var(--text-accent);
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+  }
+</style>
