@@ -1,5 +1,5 @@
 ---
-title: "Syrup's website just launched!"
+title: "Syrup's website just launched! 🧑‍💻"
 date: 2024-06-29
 category: "news"
 ---
