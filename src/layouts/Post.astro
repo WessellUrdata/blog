@@ -1,31 +1,29 @@
 ---
 import Shell from "./Shell.astro";
 
-import dayjs from "dayjs";
-
 import "katex/dist/katex.min.css";
+import TitleCard from "../components/Layout/TitleCard.astro";
+import E from "../components/E.astro";
 
-const { title, date, category, description } = Astro.props.frontmatter;
+const { title, date, updateDate, category, description } = Astro.props.frontmatter;
 ---
 
 <Shell title={title} ogTitle={title} ogDescription={description}>
-  <article
-    class="max-w-none
-    prose
-    prose-headings:my-6
-    prose-img:mx-auto
-    prose-img:max-h-[360px]
-    prose-img:object-contain
-    prose-img:h-11/12
-    prose-img:w-11/12
-    prose-code:break-words"
-  >
-    <h1>{title}</h1>
-    <div class="my-2">{dayjs(date).format("YYYY-MM-DD")}</div>
-    <div class="my-2">
-      <span class="badge badge-accent badge-outline mx-0.5 p-2 text-xs">{category}</span>
-    </div>
+  <article class="prose
+  prose-code:break-words">
+    <TitleCard title={title} date={date} updateDate={updateDate} category={category} description={description} />
 
-    <slot />
+    <E>
+      <style is:inline>
+        article img:not(.emoji) {
+          margin: 0 auto;
+          max-height: 360px;
+          object-fit: contain;
+          height: 91.667%;
+          border-radius: 0.5rem;
+        }
+      </style>
+      <slot />
+    </E>
   </article>
 </Shell>
