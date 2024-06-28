@@ -1,5 +1,11 @@
 ---
 import E from "../E.astro";
+
+const navItems = [
+  { href: "/about", text: "About me 🫂" },
+  { href: "/screensaver", text: "☺️saver" },
+  { href: "https://dl.wesl.cc", text: "Public Downloads 📦" },
+];
 ---
 
 <header class="min-h-14 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-col sm:flex-row items-center">
@@ -13,22 +19,22 @@ import E from "../E.astro";
   </a>
   <nav>
     <ul class="sm:flex sm:flex-row grid justify-items-center">
-      <li>
-        <a class="btn btn-ghost" href="/about">
-          About me <E>🫂</E>
-        </a>
-      </li>
-      <li>
-        <a class="btn btn-ghost" href="/screensaver" target="_blank" rel="noreferrer">
-          <span> <E>☺️</E>saver</span>
-        </a>
-      </li>
-      <li>
-        <a class="btn btn-ghost" href="https://dl.wesl.cc" target="_blank" rel="noreferrer">
-          Public Downloads
-          <E>📦</E>
-        </a>
-      </li>
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              class="btn btn-ghost"
+              href={item.href}
+              target={item.href.startsWith("http") ? "_blank" : "_self"}
+              rel="noreferrer"
+            >
+              <span>
+                <E>{item.text}</E>
+              </span>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </header>
