@@ -5,4 +5,5 @@ img.emoji {
   width: 1.2em;
   margin: 0 0.025em;
   vertical-align: sub;
+  border-radius: 0;
 }

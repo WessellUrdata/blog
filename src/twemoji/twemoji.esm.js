@@ -1,8 +1,11 @@
 /*! Copyright Twitter Inc. and other contributors. Licensed under MIT */
 var twemoji = (function () {
   "use strict";
+
+  const twemojiVer = "15.1.0";
+
   var twemoji = {
-      base: "/twemoji/",
+      base: `/twemoji/${twemojiVer}/`,
       ext: ".png",
       size: "72x72",
       className: "emoji",
@@ -124,7 +127,7 @@ var twemoji = (function () {
         attrib,
         attrname;
       if (iconId && src) {
-        ret = `<image class=${options.className} draggable=false src="${src}" />`;
+        ret = `<img class=${options.className} draggable=false src="${src}" alt="${rawText}" />`;
         attrib = options.attributes(rawText, iconId);
         for (attrname in attrib) {
           if (

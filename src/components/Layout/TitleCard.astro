@@ -1,0 +1,36 @@
+---
+import dayjs from "dayjs";
+import E from "../E.astro";
+
+const { title, date, updateDate, category, description, link } = Astro.props;
+---
+
+{
+  link ? (
+    <a class="hover:brightness-75 transition" href={link}>
+      <h1>
+        <E>{title}</E>
+      </h1>
+    </a>
+  ) : (
+    <h1>
+      <E>{title}</E>
+    </h1>
+  )
+}
+
+<h3>
+  Posted on {dayjs(date).format("YYYY-MM-DD")} -
+  {
+    updateDate
+      ? `Updated on
+        ${dayjs(updateDate).format("YYYY-MM-DD")} - `
+      : ""
+  }
+  {category}
+</h3>
+<p>
+  <E>
+    {description}
+  </E>
+</p>

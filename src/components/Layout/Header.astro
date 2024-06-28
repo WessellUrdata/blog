@@ -1,5 +1,5 @@
 ---
-import { twemojiVer } from "../../constants.ts";
+import E from "../E.astro";
 ---
 
 <header class="min-h-14 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-col sm:flex-row items-center">
@@ -9,24 +9,24 @@ import { twemojiVer } from "../../constants.ts";
     href="/"
   >
     <img class="w-10 h-10" alt="Wessell's site logo" src="/logo.svg" />
-    <span>Wessell's <img class="emoji" draggable="false" alt="☺️" src=`/twemoji/${twemojiVer}/263a.png` />site</span>
+    <span>Wessell's <E>☺️</E>site</span>
   </a>
   <nav>
     <ul class="sm:flex sm:flex-row grid justify-items-center">
       <li>
         <a class="btn btn-ghost" href="/about">
-          About me <img class="emoji" draggable="false" alt="🫂" src=`/twemoji/${twemojiVer}/1fac2.png` />
+          About me <E>🫂</E>
         </a>
       </li>
       <li>
         <a class="btn btn-ghost" href="/screensaver" target="_blank" rel="noreferrer">
-          <span> <img class="emoji" draggable="false" alt="☺️" src=`/twemoji/${twemojiVer}/263a.png` />saver</span>
+          <span> <E>☺️</E>saver</span>
         </a>
       </li>
       <li>
         <a class="btn btn-ghost" href="https://dl.wesl.cc" target="_blank" rel="noreferrer">
           Public Downloads
-          <img class="emoji" draggable="false" alt="📦" src=`/twemoji/${twemojiVer}/1f4e6.png` />
+          <E>📦</E>
         </a>
       </li>
     </ul>
