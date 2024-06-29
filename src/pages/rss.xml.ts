@@ -1,6 +1,8 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
+import dayjs from "dayjs";
+
 export async function GET(context: { site: any }) {
   const blog = await getCollection("blog");
 
@@ -13,6 +15,7 @@ export async function GET(context: { site: any }) {
       description: post.data.description,
       link: `/blog/${post.slug}/`,
       pubDate: post.data.date,
+      customData: post.data.updateDate ? `<lastBuildDate>${dayjs(post.data.updateDate)}</lastBuildDate>` : "",
     })),
   });
 }
