@@ -3,27 +3,31 @@ import Button8831 from "../Button8831.astro";
 ---
 
 <footer class="text-center text-xs bg-primary border-t-[.5px] border-gray-400 p-2 flex flex-col gap-y-1">
-  <div id="buttons" class="flex justify-center gap-2 flex-wrap">
+  <span id="buttons" class="flex justify-center gap-2 flex-wrap">
     <Button8831 href="https://neeeko.com" src="/buttons/neeeko.png" alt="Butto for neeeko's site" />
     <Button8831 href="https://deluxesyrup.github.io" src="/buttons/syrup.gif" alt="Button for syrup's website" />
-    <span class="rounded-sm px-1 backdrop-brightness-200">
-      <Button8831 href="https://polyuctf.com" src="/buttons/nuttyshell.png" alt="NuttyShell" />
-    </span>
+    <Button8831
+      href="https://polyuctf.com"
+      src="/buttons/nuttyshell.png"
+      alt="NuttyShell"
+      class="rounded-sm px-1 backdrop-brightness-200"
+      width="157"
+    />
     <Button8831
       href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"
       src="/buttons/by-nc-sa.png"
       alt="Button of CC BY-NC-SA"
     />
-  </div>
+  </span>
 
-  <p>
+  <span>
     This website is best <i>not</i> viewed on the Nintendo DS Browser at the moment. See
     <a href="https://github.com/WessellUrdata/blog/issues/1" target="_blank" rel="noreferrer" class="link"
       >GitHub Issue</a
     >. DS Browser support WIP or not at all.
-  </p>
+  </span>
 
-  <p>
+  <span>
     Website content is licensed under
     <a
       href="https://creativecommons.org/licenses/by-nc-sa/4.0"
@@ -32,7 +36,7 @@ import Button8831 from "../Button8831.astro";
       class="inline-block link"
       >CC BY-NC-SA 4.0
     </a> unless specified otherwise
-  </p>
+  </span>
 
-  <p>© Wessell 2024</p>
+  <span>© Wessell 2024</span>
 </footer>

@@ -3,17 +3,14 @@ interface Props {
   href: string;
   alt: string;
   src: string;
+  height?: string;
+  width?: string;
+  class?: string;
 }
 
-const { href, alt, src } = Astro.props;
+const { href, alt, src, height = 31, width = 88, class: className } = Astro.props;
 ---
 
 <a href={href} target="_blank" rel="noreferrer">
-  <img src={src} alt={alt} class="btn8831" />
+  <img src={src} alt={alt} height={height} width={width} class={className} style="height: 31px" />
 </a>
-
-<style>
-  img.btn8831 {
-    height: 31px;
-  }
-</style>
