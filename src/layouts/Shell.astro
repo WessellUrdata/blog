@@ -38,9 +38,9 @@ import Footer from "../components/Layout/Footer.astro";
     <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
 
-  <body>
+  <body class="flex flex-col min-h-dvh">
     <Header />
-    <main>
+    <main class="max-w-[720px] w-full flex-grow px-4 py-8 mx-auto">
       <slot />
     </main>
     <Footer />
@@ -48,36 +48,11 @@ import Footer from "../components/Layout/Footer.astro";
 </html>
 
 <style is:global>
-  :root {
-    --text-accent: #ffcc4d;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100dvh;
-  }
-
-  main {
-    max-width: 900px;
-
-    flex-grow: 1;
-    padding: 1.5rem 1rem;
-    margin: 0px auto;
-
-    background-color: #232629;
-  }
-
   h1 {
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 600;
-    color: var(--text-accent);
+    @apply text-2xl font-semibold text-accent;
   }
 
   h2 {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 500;
+    @apply text-xl font-medium;
   }
 </style>
