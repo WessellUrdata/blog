@@ -12,7 +12,7 @@ posts.sort((a, b) => {
 });
 ---
 
-<span class="flex my-4 py-2 border-b-2 border-neutral">
+<div class="flex my-4 py-2 border-b-2 border-neutral">
   <h1 class="text-2xl font-bold text-accent mr-auto">Blog posts <E>✍️☺️</E></h1>
 
   <a href="/rss.xml" class="ml-auto btn btn-sm btn-outline btn-accent" aria-label="Link to get RSS feed">
@@ -23,7 +23,7 @@ posts.sort((a, b) => {
     </svg>
     <span class="hidden sm:block">RSS Feed</span>
   </a>
-</span>
+</div>
 
 {
   posts.map((post) => (
