@@ -7,7 +7,11 @@ export default defineConfig({
     presetTypography({
       cssExtend: {
         h1: {
+          "font-size": "1.875rem",
+          "line-height": "2.25rem",
+          "font-weight": "600",
           margin: "inherit",
+          "margin-bottom": "12px",
         },
         "h2, h3, h4, h5, h6": {
           "margin-bottom": "24px",
@@ -64,6 +68,9 @@ export default defineConfig({
       // warning: "#ed1515",
       // error: "#da4453",
     },
+  },
+  shortcuts: {
+    "heading-1": "text-3xl font-semibold text-accent mb-1",
   },
   preflights: [
     {
