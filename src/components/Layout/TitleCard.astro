@@ -8,12 +8,12 @@ const { title, date, updateDate, category, description, link } = Astro.props;
 {
   link ? (
     <a class="hover:brightness-75 transition" href={link}>
-      <h1>
+      <h1 class="text-2xl font-semibold text-accent">
         <E>{title}</E>
       </h1>
     </a>
   ) : (
-    <h1>
+    <h1 class="text-2xl font-semibold text-accent">
       <E>{title}</E>
     </h1>
   )
@@ -36,13 +36,3 @@ const { title, date, updateDate, category, description, link } = Astro.props;
     {description}
   </E>
 </p>
-
-<style>
-  h1 {
-    @apply text-2xl font-semibold text-accent;
-  }
-
-  h2 {
-    @apply text-xl font-medium;
-  }
-</style>
