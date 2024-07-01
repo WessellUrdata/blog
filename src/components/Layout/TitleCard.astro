@@ -31,8 +31,12 @@ const { title, date, updateDate, category, description, link } = Astro.props;
   <span class="category bg-slate-600 px-2 rounded text-gray-100">{category}</span>
 </span>
 
-<p>
-  <E>
-    {description}
-  </E>
-</p>
+{
+  description ? (
+    <p>
+      <E>{description}</E>
+    </p>
+  ) : (
+    ""
+  )
+}

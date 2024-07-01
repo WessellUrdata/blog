@@ -8,24 +8,8 @@ const { title, date, updateDate, category, description } = Astro.props.frontmatt
 ---
 
 <Shell title={title} ogTitle={title} ogDescription={description}>
-  <article
-    class="prose
-    max-w-none
-    prose-img:mx-auto
-    prose-img:h-[5/6]
-    prose-img:max-h-[360px]
-    prose-img:rounded"
-  >
+  <article class="prose max-w-full">
     <TitleCard title={title} date={date} updateDate={updateDate} category={category} description="" />
-
-    <E>
-      <slot />
-    </E>
+    <E><slot /></E>
   </article>
 </Shell>
-
-<style is:global>
-  math {
-    font-size: 1.21rem;
-  }
-</style>

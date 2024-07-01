@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
-import tailwind from "@astrojs/tailwind";
+import UnoCSS from "unocss/astro";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
@@ -12,7 +12,13 @@ import rehypeKatex from "rehype-katex";
 // https://astro.build/config
 export default defineConfig({
   site: "https://wesl.cc",
-  integrations: [tailwind(), mdx(), sitemap()],
+  integrations: [
+    UnoCSS({
+      injectReset: true,
+    }),
+    mdx(),
+    sitemap(),
+  ],
   markdown: {
     remarkPlugins: [remarkMath, emoji],
     rehypePlugins: [[rehypeKatex, { output: "mathml" }]],
