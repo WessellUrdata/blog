@@ -1,7 +1,6 @@
 ---
 import Shell from "./Shell.astro";
 
-import "katex/dist/katex.min.css";
 import TitleCard from "../components/Layout/TitleCard.astro";
 import E from "../components/E.astro";
 
@@ -24,3 +23,9 @@ const { title, date, updateDate, category, description } = Astro.props.frontmatt
     </E>
   </article>
 </Shell>
+
+<style is:global>
+  math {
+    font-size: 1.21rem;
+  }
+</style>

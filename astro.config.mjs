@@ -15,7 +15,7 @@ export default defineConfig({
   integrations: [tailwind(), mdx(), sitemap()],
   markdown: {
     remarkPlugins: [remarkMath, emoji],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [[rehypeKatex, { output: "mathml" }]],
     // shiki is used for code snippet syntax highlighting
     shikiConfig: {
       wrap: true, // Enable word wrap to prevent horizontal scrolling

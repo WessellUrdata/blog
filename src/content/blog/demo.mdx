@@ -1,6 +1,7 @@
 ---
 title: "Tech Demo ☺️🧑‍💻"
 date: 2024-05-08
+updateDate: 2024-07-01
 description: 'A "blog post" which serves as a sandbox for me to test and showcase what I can do with Astro.'
 category: "demo"
 ---
@@ -26,9 +27,13 @@ PPS: It's caused by [emojilib](https://github.com/muan/emojilib). There's progre
 
 Here's the (in)famous Euler's formula written using [remark-math](https://github.com/remarkjs/remark-math/tree/main/packages/remark-math) and [rehype-katex](https://github.com/remarkjs/remark-math/tree/main/packages/rehype-katex).
 
-$$
+```math
 e^{j \theta} = \cos \theta + j \sin \theta
-$$
+```
+
+### PS on 2024-07-01:
+
+I've removed KaTeX CSS and opted to just use MathML with an increased font size. KaTeX's CSS bundle is quite large and since I'd probably write very little math on this website, it's best to keep it lightweight.
 
 ## Syntax Highlighting 🖊️ & Image support 🖼️ (It's there but I wanted to add some CSS)
 
