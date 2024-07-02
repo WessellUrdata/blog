@@ -24,7 +24,8 @@ export default defineConfig({
     rehypePlugins: [[rehypeKatex, { output: "mathml" }]],
     // shiki is used for code snippet syntax highlighting
     shikiConfig: {
-      wrap: true, // Enable word wrap to prevent horizontal scrolling
+      theme: "dark-plus",
+      wrap: true,
     },
   },
 });
