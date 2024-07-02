@@ -88,20 +88,9 @@ tim@x13 ~> echo ☺️🫂‼️ | cowsay
 
 ## Weather Cards 🏙️🌦️
 
-I wrote some code to fetch weather data from the [Hong Kong Observatory](https://www.hko.gov.hk/en/index.html) a while ago dynamically. Since this website ships no JavaScript to the client, it's only rendered on the server and not updated client-side. Just keep that in mind.
+~~I wrote some code to fetch weather data from the [Hong Kong Observatory](https://www.hko.gov.hk/en/index.html) a while ago dynamically. Since this website ships no JavaScript to the client, it's only rendered on the server and not updated client-side. Just keep that in mind.~~
 
-It's quite a bit ugly right now, but it does work. I might come back and touch up on the CSS later.
-
-import WeatherInfo from "../../components/Weather/WeatherInfo.astro";
-import WeatherCard from "../../components/Weather/WeatherCard.astro";
-
-<div class="not-prose flex flex-col mx-auto w-full text-center">
-  Removed for the time being.
-  {/* <WeatherInfo />
-  <WeatherCard displayLocation="Hung Hom" API_URL="https://www.hko.gov.hk/PDADATA/locspc/data/gridData/0906_en.xml" /> */}
-</div>
-
-Turns out it's broken right now due to my sloppy spaghetti architecture. To be fixed Soon:tm: :relaxed:.
+**PS on 2024-07-02:** I originally planned to do this, but this would mean the website would no longer be statically generated, which is not something I would to forgo. Sad!
 
 ## Jyutping 🇭🇰🗣️
 
