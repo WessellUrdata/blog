@@ -9,21 +9,21 @@ const navItems = [
 ---
 
 <header
-  class="min-h-14 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-col sm:flex-row items-center">
+  class="py-1.5 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-col sm:flex-row items-center px-2">
   <a
-    class="inline-flex items-center text-lg h-12 min-h-12 cursor-pointer select-none px-2 my-2 sm:my-0 text-center gap-2 font-semibold"
+    class="flex items-center text-lg font-semibold cursor-pointer select-none my-2 sm:my-0 gap-2"
     tabindex="0"
     href="/">
     <img class="w-10 h-10" alt="Wessell's site logo" src="/logo.svg" />
     <span>Wessell's <E>☺️</E>site</span>
   </a>
-  <nav class="sm:ml-auto my-2 py-1 sm:py-0">
+  <nav class="sm:ml-auto my-1">
     <ul class="flex flex-wrap justify-center gap-3">
       {
         navItems.map((item) => (
           <li class="my-1">
             <a
-              class="font-semibold text-sm border-2 p-2 rounded-xl border-accent"
+              class="font-semibold text-sm border-2 px-3 py-2 rounded-xl border-accent"
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : "_self"}
               rel="noreferrer">
