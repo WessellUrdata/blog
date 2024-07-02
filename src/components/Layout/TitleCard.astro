@@ -7,7 +7,7 @@ const { title, date, updateDate, category, description, link } = Astro.props;
 
 {
   link ? (
-    <a class="hover:brightness-75 transition" href={link}>
+    <a href={link}>
       <h1 class="heading-1">
         <E>{title}</E>
       </h1>
@@ -19,19 +19,21 @@ const { title, date, updateDate, category, description, link } = Astro.props;
   )
 }
 
-{ 
+{
   date ? (
-    <span>
-      posted on {dayjs(date).format("YYYY-MM-DD")}
-      {updateDate ? <E> 🔸 </E> : ""}
-      {
-        updateDate
+    <>
+      <span>
+        posted on {dayjs(date).format("YYYY-MM-DD")}
+        {updateDate ? <E> 🔸 </E> : ""}
+        {updateDate
           ? `updated on
             ${dayjs(updateDate).format("YYYY-MM-DD")} `
-          : ""
-      }
-    </span>
-    <span class="bg-slate-600 px-2 mx-2 rounded text-gray-100">{category}</span>
+          : ""}
+      </span>
+      <span class="bg-slate-600 px-2 mx-2 rounded text-gray-100">
+        {category}
+      </span>
+    </>
   ) : (
     ""
   )
