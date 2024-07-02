@@ -39,7 +39,7 @@ export default defineConfig({
           {
             content: "counter(step)",
             "counter-increment": "step",
-            width: ".5rem",
+            width: "1rem",
             "margin-right": "1.5rem",
             display: "inline-block",
             "text-align": "right",
