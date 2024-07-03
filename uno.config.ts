@@ -61,6 +61,7 @@ export default defineConfig({
       primary: "#31363b", // view, BackgroundAlternate
       accent: "#ffcc4d",
       neutral: "#4d4d4d",
+      text: "#cecfd0",
 
       // secondary: "#4d4d4d",
       // info: "#2980b9",
@@ -71,13 +72,14 @@ export default defineConfig({
   },
   shortcuts: {
     "heading-1": "text-3xl font-semibold text-accent mb-1",
+    link: "underline font-medium brightness-110",
   },
   preflights: [
     {
       getCSS: ({ theme }) => `
         :root {
           background-color: ${theme.colors!.base};
-          color: #cecfd0; /* Your text color */
+          color: ${theme.colors!.text};
         }
       `,
     },
