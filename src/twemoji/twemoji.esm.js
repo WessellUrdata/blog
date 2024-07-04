@@ -127,7 +127,7 @@ var twemoji = (function () {
         attrib,
         attrname;
       if (iconId && src) {
-        ret = `<img class=${options.className} draggable=false src="${src}" alt="${rawText}" >`;
+        ret = `<img class=${options.className} draggable=false src="${src}" alt="${rawText}" loading="lazy" >`;
         attrib = options.attributes(rawText, iconId);
         for (attrname in attrib) {
           if (
