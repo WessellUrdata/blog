@@ -81,6 +81,15 @@ export default defineConfig({
           background-color: ${theme.colors!.base};
           color: ${theme.colors!.text};
         }
+
+        img.emoji {
+          display: inline;
+          height: 1.2em;
+          width: 1.2em;
+          margin: 0 0.025em;
+          vertical-align: sub;
+          border-radius: 0;
+        }
       `,
     },
   ],

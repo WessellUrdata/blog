@@ -2,18 +2,10 @@
 // Twemoji injection
 import twemoji from "../twemoji/twemoji.esm.js";
 import { twemojiSettings } from "../constants.ts";
-const slotHtml: string = twemoji.parse(await Astro.slots.render("default"), twemojiSettings);
+const slotHtml: string = twemoji.parse(
+  await Astro.slots.render("default"),
+  twemojiSettings,
+);
 ---
 
 <Fragment set:html={slotHtml} />
-
-<style is:global>
-  img.emoji {
-    display: inline;
-    height: 1.2em;
-    width: 1.2em;
-    margin: 0 0.025em;
-    vertical-align: sub;
-    border-radius: 0;
-  }
-</style>
