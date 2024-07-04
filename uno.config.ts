@@ -6,6 +6,9 @@ export default defineConfig({
     presetUno(),
     presetTypography({
       cssExtend: {
+        ":root": {
+          "--un-prose-links": "#e7e8ea",
+        },
         h1: {
           "font-size": "1.875rem",
           "line-height": "2.25rem",
@@ -62,6 +65,7 @@ export default defineConfig({
       accent: "#ffcc4d",
       neutral: "#4d4d4d",
       text: "#cecfd0",
+      link: "#e7e8ea", // text color with 10% increased brightness
 
       // secondary: "#4d4d4d",
       // info: "#2980b9",
@@ -72,7 +76,7 @@ export default defineConfig({
   },
   shortcuts: {
     "heading-1": "text-3xl font-semibold text-accent mb-1",
-    link: "underline font-medium brightness-110",
+    link: "underline font-medium text-link",
   },
   preflights: [
     {
