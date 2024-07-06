@@ -9,6 +9,8 @@ import emoji from "remark-emoji";
 
 import rehypeKatex from "rehype-katex";
 
+import playformCompress from "@playform/compress";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://wesl.cc",
@@ -18,6 +20,7 @@ export default defineConfig({
     }),
     mdx(),
     sitemap(),
+    playformCompress(),
   ],
   markdown: {
     remarkPlugins: [remarkMath, emoji],
