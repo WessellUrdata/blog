@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -56,7 +56,8 @@
         font-size: 2rem;
       "
     >
-      Corner hits: <span id="cornerHitCount">0</span>
+      Corner hits:
+      <span id="cornerHitCount">0</span>
     </div>
   </body>
 
@@ -64,14 +65,16 @@
     const relaxedDiv = document.getElementById("bouncing-relaxed");
     const relaxedSvg = document.getElementById("relaxedBg");
     const hitCountSpan = document.getElementById("cornerHitCount");
+    const container = relaxedDiv.parentElement;
+    const updatesPerFrame = 2;
 
     // randomize the initial position
     relaxedDiv.style.left = 30 + Math.random() * 40 + "vw";
     relaxedDiv.style.top = 30 + Math.random() * 40 + "vh";
 
     // randomize the direction
-    let speedX = 1 * (Math.random() < 0.5 ? -1 : 1);
-    let speedY = 1 * (Math.random() < 0.5 ? -1 : 1);
+    let dirX = Math.random() < 0.5 ? -1 : 1;
+    let dirY = Math.random() < 0.5 ? -1 : 1;
 
     let vHit = false;
     let hHit = false;
@@ -79,32 +82,26 @@
     let cornerHitCount = 0;
 
     function animate() {
-      const container = relaxedDiv.parentElement;
-      const updatesPerFrame = 2;
       for (let i = 0; i < updatesPerFrame; i++) {
         const { x, y } = relaxedDiv.getBoundingClientRect(); // from the top left corner of the logo
 
         // Reverse direction when the logo hits a boundary
-        if (x + relaxedDiv.offsetWidth + Math.abs(speedX) > container.offsetWidth || x < Math.abs(speedX)) {
-          speedX *= -1;
+        if (x + relaxedDiv.offsetWidth + Math.abs(dirX) > container.offsetWidth || x < Math.abs(dirX)) {
+          dirX *= -1;
           hHit = true;
         }
-        if (y + relaxedDiv.offsetHeight + Math.abs(speedY) > container.offsetHeight || y < Math.abs(speedY)) {
-          speedY *= -1;
+        if (y + relaxedDiv.offsetHeight + Math.abs(dirY) > container.offsetHeight || y < Math.abs(dirY)) {
+          dirY *= -1;
           vHit = true;
         }
 
         // Move the logo
-        relaxedDiv.style.left = relaxedDiv.offsetLeft + speedX + "px";
-        relaxedDiv.style.top = relaxedDiv.offsetTop + speedY + "px";
+        relaxedDiv.style.left = relaxedDiv.offsetLeft + dirX + "px";
+        relaxedDiv.style.top = relaxedDiv.offsetTop + dirY + "px";
 
-        if (hHit && vHit) {
-          hitCountSpan.innerText = ++cornerHitCount;
-        }
+        if (hHit && vHit) hitCountSpan.innerText = ++cornerHitCount;
 
-        if (hHit || vHit) {
-          relaxedSvg.style.fill = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        }
+        if (hHit || vHit) relaxedSvg.style.fill = `hsl(${Math.random() * 360}, 100%, 50%)`;
 
         // Reset the hit flags
         hHit = vHit = false;
