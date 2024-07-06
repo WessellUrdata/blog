@@ -36,7 +36,8 @@
       "prettier-plugin-md-nocjsp"
     ],
     "htmlWhitespaceSensitivity": "ignore",
-    "bracketSameLine": true,
+    "bracketSameLine": false,
+    "printWidth": 120,
     "overrides": [
       {
         "files": [

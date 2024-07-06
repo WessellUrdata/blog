@@ -30,9 +30,7 @@ const { title, date, updateDate, category, description, link } = Astro.props;
             ${dayjs(updateDate).format("YYYY-MM-DD")} `
           : ""}
       </span>
-      <span class="bg-slate-600 px-2 mx-2 rounded text-gray-100">
-        {category}
-      </span>
+      <span class=":uno: bg-slate-600 px-2 mx-2 rounded text-gray-100">{category}</span>
     </>
   ) : (
     ""

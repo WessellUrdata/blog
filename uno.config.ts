@@ -1,5 +1,9 @@
-import { defineConfig } from "unocss";
-import { presetUno, presetTypography } from "unocss";
+import {
+  defineConfig,
+  presetUno,
+  presetTypography,
+  transformerCompileClass,
+} from "unocss";
 
 export default defineConfig({
   presets: [
@@ -97,4 +101,5 @@ export default defineConfig({
       `,
     },
   ],
+  transformers: [transformerCompileClass()],
 });
