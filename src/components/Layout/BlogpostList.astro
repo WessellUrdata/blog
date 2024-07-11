@@ -17,11 +17,16 @@ posts.sort((a, b) => {
 
   <a
     href="/rss.xml"
-    class="ml-auto px-3 py-1 gap-x-2 flex items-center text-accent text-sm font-semibold border-[1px] border-accent rounded-lg"
-    aria-label="Link to get RSS feed">
+    p="x-3 y-1"
+    text="accent sm"
+    border="accent 1px"
+    class="ml-auto gap-x-2 flex items-center font-semibold rounded-lg"
+    aria-label="Link to get RSS feed"
+  >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" height="16">
       <path
-        d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z">
+        d="M3 3C12.9411 3 21 11.0589 21 21H18C18 12.7157 11.2843 6 3 6V3ZM3 10C9.07513 10 14 14.9249 14 21H11C11 16.5817 7.41828 13 3 13V10ZM3 17C5.20914 17 7 18.7909 7 21H3V17Z"
+      >
       </path>
     </svg>
     <span class="hidden sm:block">RSS Feed</span>
@@ -30,7 +35,7 @@ posts.sort((a, b) => {
 
 {
   posts.map((post) => (
-    <div class="p-4 space-y-1 my-2 border-2 rounded-xl border-dashed border-neutral">
+    <div class=":uno: p-4 space-y-1 my-2 rounded-xl" border="2 dashed neutral">
       <TitleCard
         title={post.data.title}
         date={post.data.date}

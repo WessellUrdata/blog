@@ -8,25 +8,28 @@ const navItems = [
 ];
 ---
 
-<header
-  class="py-1.5 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-col sm:flex-row items-center px-2">
+<header p="y-1.5 x-2" border="b-[.5px] gray-400" flex="~ col sm:row" w-full bg-primary items-center>
   <a
-    class="flex items-center text-lg font-semibold cursor-pointer select-none my-2 sm:my-0 gap-2"
+    class="flex items-center text-lg font-semibold cursor-pointer select-none gap-2"
+    m="y-2 sm:y-0"
     tabindex="0"
-    href="/">
+    href="/"
+  >
     <img class="w-10 h-10" alt="Wessell's site logo" src="/logo.svg" />
     <span>Wessell's <E>☺️</E>site</span>
   </a>
   <nav class="sm:ml-auto my-1">
-    <ul class="flex flex-wrap justify-center gap-3">
+    <ul class="justify-center gap-3" flex="~ wrap">
       {
         navItems.map((item) => (
           <li class="my-1">
             <a
-              class="font-semibold text-sm border-2 px-3 py-2 rounded-xl border-accent"
+              class="font-semibold text-sm border-2 rounded-xl border-accent"
+              p="x-3 y-2"
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : "_self"}
-              rel="noreferrer">
+              rel="noreferrer"
+            >
               <E>{item.text}</E>
             </a>
           </li>

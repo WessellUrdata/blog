@@ -1,9 +1,4 @@
-import {
-  defineConfig,
-  presetUno,
-  presetTypography,
-  transformerCompileClass,
-} from "unocss";
+import { defineConfig, presetUno, presetTypography, transformerCompileClass, presetAttributify } from "unocss";
 
 export default defineConfig({
   presets: [
@@ -60,6 +55,7 @@ export default defineConfig({
         },
       },
     }),
+    presetAttributify(),
   ],
   theme: {
     colors: {
