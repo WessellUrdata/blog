@@ -8,12 +8,12 @@ const navItems = [
 ];
 ---
 
-<header
-  class="py-1.5 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-col sm:flex-row items-center px-2">
+<header class="py-1.5 w-full bg-primary border-b-[.5px] border-gray-400 flex flex-col sm:flex-row items-center px-2">
   <a
     class="flex items-center text-lg font-semibold cursor-pointer select-none my-2 sm:my-0 gap-2"
     tabindex="0"
-    href="/">
+    href="/"
+  >
     <img class="w-10 h-10" alt="Wessell's site logo" src="/logo.svg" />
     <span>Wessell's <E>☺️</E>site</span>
   </a>
@@ -26,7 +26,8 @@ const navItems = [
               class="font-semibold text-sm border-2 px-3 py-2 rounded-xl border-accent"
               href={item.href}
               target={item.href.startsWith("http") ? "_blank" : "_self"}
-              rel="noreferrer">
+              rel="noreferrer"
+            >
               <E>{item.text}</E>
             </a>
           </li>
