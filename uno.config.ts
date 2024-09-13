@@ -1,9 +1,4 @@
-import {
-  defineConfig,
-  presetUno,
-  presetTypography,
-  transformerCompileClass,
-} from "unocss";
+import { defineConfig, presetUno, presetTypography, transformerCompileClass } from "unocss";
 
 export default defineConfig({
   presets: [
@@ -23,9 +18,6 @@ export default defineConfig({
         "h2, h3, h4, h5, h6": {
           "margin-bottom": "24px",
         },
-        a: {
-          filter: "brightness(1.1)",
-        },
         img: {
           margin: "0 auto",
           height: "83.3%",
@@ -42,16 +34,15 @@ export default defineConfig({
           "counter-reset": "step",
           "counter-increment": "step 0",
         },
-        "pre:not([data-language='plaintext']):not([data-language='console']) > code .line::before":
-          {
-            content: "counter(step)",
-            "counter-increment": "step",
-            width: "1rem",
-            "margin-right": "1.5rem",
-            display: "inline-block",
-            "text-align": "right",
-            color: "rgb(115,138,148)",
-          },
+        "pre:not([data-language='plaintext']):not([data-language='console']) > code .line::before": {
+          content: "counter(step)",
+          "counter-increment": "step",
+          width: "1rem",
+          "margin-right": "1.5rem",
+          display: "inline-block",
+          "text-align": "right",
+          color: "rgb(115,138,148)",
+        },
         pre: {
           padding: "1rem",
           "border-radius": ".5rem",
